@@ -1,25 +1,37 @@
-let prestamo = parseInt(prompt("Monto de prestamo solicitado?"));
-let tiempo = parseInt(prompt("cantidad de cuotas?"));
-let destino = parseInt(prompt("cual va a ser su destino? \n 1.Personal \n 2. Prendario"));
-    if ((destino == 1) && (tiempo>=3 && tiempo <=18)) {
-
-        let resultado = parseInt(prompt("Hola, en este caso tu préstamo esta alcanzado por un CFT del 62%"));}
-    else if ((destino == 2) && (tiempo<= 18)){
-        let resultado = parseInt(prompt("Hola, en este caso tu préstamo esta alcanzado por un CFT del 23%"));}
-    else if ((destino == 1) && (tiempo>=4 && tiempo <=60)){
-        let resultado = parseInt(prompt("Hola, en este caso tu préstamo estas alcanzado por una CFT del 65%"));
+// simulador prestamo personal. 
+let tasa1 = 0.062;
+let tasa2 = 0.065;
+let tasa3 = 0.067;
+let tasa4 = 0.069;
+let prestamo;
+let totalPrestamo;
+infoCliente()
+function infoCliente(){
+    let nombre = parseInt(prompt("ingresa tu nombre"));    
+    let cuota = parseInt(prompt("cantidad de cuotas, mínimo 3, máximo 60"));
+    if(cuota>0 && cuota<=6){
+    alert(`tasa 69%`);
+    let prestamo = parseInt(prompt("ingresa el monto"));
+    let totalPrestamo = parseInt((prestamo*cuota*tasa4)+prestamo);
+    alert(`el total a devolver es de ${totalPrestamo}`);
     }
-    
-
-    
-
-/* while((tiempo>3) && (tiempo<=18)){
-    let interes = 0.45;
-    // let montoCuota = (prestamo / tiempo)
-} */
-
-console.log(prestamo);
-console.log(tiempo);
-
-// console.log(interes);
-// console.log(montoCuota);
+    else if(cuota>=7 && cuota<=11){
+        alert(`tasa 67%`);
+        let prestamo = parseInt(prompt("ingresa monto"));
+        let totalPrestamo = parseInt((prestamo*cuota*tasa3)+prestamo);
+        alert(`el total a devolver es de ${totalPrestamo}`);
+    }
+    else if(cuota>=12 && cuota<=48){
+        alert(`tasa 65%`);
+        let prestamo = parseInt(prompt("ingresa monto"));
+        let totalPrestamo = parseInt((prestamo*cuota*tasa2)+prestamo);
+        alert(`el total a devolver es de ${totalPrestamo}`);
+    }
+    else if(cuota>=49 && cuota<=60){
+        alert(`tasa 62%`);
+        let prestamo = parseInt(prompt("ingresa monto"));
+        let totalPrestamo = parseInt((prestamo*cuota*tasa1)+prestamo);
+        alert(`el total a devolver es de ${totalPrestamo}`);
+    } 
+    else{alert("error en la informacion ingresada")}
+}
